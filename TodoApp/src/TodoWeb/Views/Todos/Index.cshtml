@@ -1,0 +1,19 @@
+@model TodoWeb.Models.TodoViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 class="text-3xl font-bold mb-6">My TODOs</h1>
+
+
+<form hx-post="/todos" hx-target="#todo-list" hx-swap="outerHTML" class="flex gap-2 mb-6">
+    <input name="title" type="text" placeholder="Add a task…" autocomplete="off"
+        class="flex-1 rounded-xl border border-slate-300 px-4 py-2 focus:outline-none focus:ring focus:ring-sky-200" />
+    <button type="submit" class="rounded-xl px-4 py-2 bg-sky-600 text-white hover:bg-sky-700">Add</button>
+</form>
+
+
+<div id="todo-list">
+    @await Html.PartialAsync("_TodoList", Model)
+</div>
