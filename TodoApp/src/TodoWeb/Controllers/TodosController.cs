@@ -10,13 +10,17 @@ namespace TodoWeb.Controllers;
 public class TodosController : Controller
 {
     private readonly ITodoRepository _repo;
-    public TodosController(ITodoRepository repo) => _repo = repo;
 
-
+    public TodosController(ITodoRepository repo)
+    {
+        _repo = repo;
+    } 
+    
     [HttpGet("/")]
     public IActionResult Index()
-    => View("Index", new TodoViewModel(_repo.All()));
-
+    {
+        return View("Index", new TodoViewModel(_repo.All()));
+    }
 
     [HttpPost("/todos")]
     public IActionResult Add([FromForm] string title)
