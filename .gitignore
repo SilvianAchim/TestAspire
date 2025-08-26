@@ -1,45 +1,64 @@
-node_modules/
-Server/.vs/
-obj/
-bin/
-.vscode/
+## Core build output
+[Bb]in/
+[Oo]bj/
+
+## VS / tooling
+.vs/
 *.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider / JetBrains
+.idea/
+*.sln.iml
+
+## Logs & diagnostics
+logs/
+Logs/
+*.svclog
+*.log
+
+## Packages
+packages/
+*.nupkg
+*.snupkg
+*.nuspec
+**/packages/**
+!**/packages/build/
+
+## NuGet caches
+*.nuget.props
+*.nuget.targets
+
+## Local environment
+.env
+.env.*.local
+
+## Node (if any frontend tooling later)
+node_modules/
+
+## OS artifacts
+Thumbs.db
+.DS_Store
+
+## Resharper
+_ReSharper*/
+*.DotSettings.user
+
+## Test artifacts
+[Tt]est[Rr]esult*/
+*.trx
+coverage*/
+
+## Sonar
+.sonarqube/
+
+## Don't ignore editor config (we want to commit one if added)
+# (previous template incorrectly excluded .editorconfig)
+
+## Others potentially generated
 *.jfm
 *.dbmdl
-Logs
-#Ignore thumbnails created by Windows
-Thumbs.db
-#Ignore files built by Visual Studio
-*.obj
-*.exe
-*.pdb
-*.aps
-*.pch
-*.vspscc
-*_i.c
-*_p.c
-*.ncb
-*.suo
-*.tlb
-*.tlh
-*.bak
-*.cache
-*.ilk
-*.log
-[Bb]in
-[Dd]ebug*/
-*.lib
-*.sbr
-[Rr]elease*/
-_ReSharper*/
-[Tt]est[Rr]esult*
-.vs/
-#Nuget packages folder
-packages/
-orders/
-#SonarQube
-Server/.sonarqube
-.sonarqube
-*.idea
-.DS_Store
-*.editorconfig
+
+# Keep everything else tracked
