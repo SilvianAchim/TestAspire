@@ -66,5 +66,5 @@ coverage*/
 # Node / Tailwind
 node_modules/
 **/package-lock.json
-TodoApp/src/TodoWeb/wwwroot/css/tailwind.css
-TodoApp/src/TodoWeb/wwwroot/css/tailwind.css.map
+MSCoffee/src/TodoWeb/wwwroot/css/tailwind.css
+MSCoffee/src/TodoWeb/wwwroot/css/tailwind.css.map
