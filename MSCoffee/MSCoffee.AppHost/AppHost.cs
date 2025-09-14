@@ -6,7 +6,10 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 // Always manage Postgres via Aspire so it appears in the dashboard
 // Note: resource names are case-insensitive; avoid 'Postgres' vs 'postgres' collisions.
-var pg = builder.AddPostgres("pg").WithDataVolume();
+var pg = builder.AddPostgres("pg")
+    // Set a stable dev password so the persisted volume and generated connection strings stay in sync
+    .WithEnvironment("POSTGRES_PASSWORD", "postgres")
+    .WithDataVolume();
 var db = pg.AddDatabase("Postgres", databaseName: "mscoffee_dev");
 
 // Existing TodoWeb references the database as well
