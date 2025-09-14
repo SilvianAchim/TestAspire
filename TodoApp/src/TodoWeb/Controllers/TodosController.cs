@@ -14,8 +14,8 @@ public class TodosController : Controller
     public TodosController(ITodoRepository repo)
     {
         _repo = repo;
-    } 
-    
+    }
+
     [HttpGet("/")]
     public IActionResult Index()
     {
