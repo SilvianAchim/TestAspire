@@ -3,13 +3,20 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "build:css": "tailwindcss -c tailwind.config.js -i ./src/TodoWeb/wwwroot/css/tailwind.input.css -o ./src/TodoWeb/wwwroot/css/tailwind.css --minify",
-    "dev:css": "tailwindcss -c tailwind.config.js -i ./src/TodoWeb/wwwroot/css/tailwind.input.css -o ./src/TodoWeb/wwwroot/css/tailwind.css --watch",
+  "build:css:todo": "tailwindcss -c tailwind.config.js -i ./src/TodoWeb/wwwroot/css/tailwind.input.css -o ./src/TodoWeb/wwwroot/css/tailwind.css --minify",
+  "build:css:game1": "tailwindcss -c tailwind.config.js -i ./src/Game1/wwwroot/css/tailwind.input.css -o ./src/Game1/wwwroot/css/tailwind.css --minify",
+  "build:css:game2": "tailwindcss -c tailwind.config.js -i ./src/Game2/wwwroot/css/tailwind.input.css -o ./src/Game2/wwwroot/css/tailwind.css --minify",
+  "build:css": "npm-run-all -s build:css:*",
+  "dev:css:todo": "tailwindcss -c tailwind.config.js -i ./src/TodoWeb/wwwroot/css/tailwind.input.css -o ./src/TodoWeb/wwwroot/css/tailwind.css --watch",
+  "dev:css:game1": "tailwindcss -c tailwind.config.js -i ./src/Game1/wwwroot/css/tailwind.input.css -o ./src/Game1/wwwroot/css/tailwind.css --watch",
+  "dev:css:game2": "tailwindcss -c tailwind.config.js -i ./src/Game2/wwwroot/css/tailwind.input.css -o ./src/Game2/wwwroot/css/tailwind.css --watch",
+  "dev:css": "npm-run-all -p dev:css:*",
     "postinstall": "npm run build:css"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13"
+  "tailwindcss": "^3.4.13",
+  "npm-run-all": "^4.1.5"
   }
 }
