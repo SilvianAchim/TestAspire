@@ -1,3 +1,3 @@
 namespace TodoWeb.Models;
 
-public record TodoItem(Guid Id, string Title, bool IsDone);
+public record TodoItem(int Id, string Title, bool IsDone);

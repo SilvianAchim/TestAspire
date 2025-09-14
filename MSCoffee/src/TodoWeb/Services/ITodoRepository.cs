@@ -6,6 +6,6 @@ public interface ITodoRepository
 {
     List<TodoItem> All();
     void Add(string title);
-    void Toggle(Guid id);
-    void Delete(Guid id);
+    void Toggle(int id);
+    void Delete(int id);
 }
