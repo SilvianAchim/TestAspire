@@ -34,12 +34,5 @@
     },
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/MSCoffee",
     "postCreateCommand": "set -e; dotnet --info; dotnet dev-certs https --clean || true; dotnet dev-certs https; dotnet restore; dotnet build; if [ -f package.json ]; then if [ -f package-lock.json ]; then npm ci; else npm install; fi; fi",
-    "postStartCommand": "set -e; if ! command -v docker >/dev/null 2>&1; then echo 'Docker not available'; exit 0; fi; (docker info >/dev/null 2>&1 || (sudo service docker start || true)); if [ -z \"$(docker ps -q -f name=mscoffee-postgres)\" ]; then if [ -n \"$(docker ps -aq -f name=mscoffee-postgres)\" ]; then docker start mscoffee-postgres >/dev/null; else docker run -d --name mscoffee-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=mscoffee_dev -p 5432:5432 -v mscoffee_pgdata:/var/lib/postgresql/data --health-cmd='pg_isready -U postgres' --health-interval=5s --health-timeout=5s --health-retries=5 postgres:16-alpine >/dev/null; fi; fi; echo 'Postgres container ready (mscoffee-postgres)';",
-    "forwardPorts": [
-        5432
-    ],
-    "containerEnv": {
-        "ConnectionStrings__Postgres": "Host=localhost;Port=5432;Database=mscoffee_dev;Username=postgres;Password=postgres"
-    },
     "remoteUser": "vscode"
 }
