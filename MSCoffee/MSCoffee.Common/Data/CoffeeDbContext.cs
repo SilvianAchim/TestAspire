@@ -22,6 +22,7 @@ public class CoffeeDbContext : DbContext
             b.ToTable("samples");
             b.HasKey(x => x.Id);
             b.Property(x => x.Name).HasMaxLength(200);
+            b.Property(x => x.IsDone);
         });
     }
 }

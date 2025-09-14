@@ -30,16 +30,16 @@ public class TodosController : Controller
     }
 
 
-    [HttpPost("/todos/{id:guid}/toggle")]
-    public IActionResult Toggle(Guid id)
+    [HttpPost("/todos/{id:int}/toggle")]
+    public IActionResult Toggle(int id)
     {
         _repo.Toggle(id);
         return PartialView("_TodoList", new TodoViewModel(_repo.All()));
     }
 
 
-    [HttpDelete("/todos/{id:guid}")]
-    public IActionResult Delete(Guid id)
+    [HttpDelete("/todos/{id:int}")]
+    public IActionResult Delete(int id)
     {
         _repo.Delete(id);
         return PartialView("_TodoList", new TodoViewModel(_repo.All()));

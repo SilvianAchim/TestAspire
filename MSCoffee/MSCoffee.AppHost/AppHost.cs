@@ -9,8 +9,9 @@ var builder = DistributedApplication.CreateBuilder(args);
 var pg = builder.AddPostgres("pg").WithDataVolume();
 var db = pg.AddDatabase("Postgres", databaseName: "mscoffee_dev");
 
-// Existing TodoWeb
-var web = builder.AddProject<Projects.TodoWeb>("web");
+// Existing TodoWeb references the database as well
+var web = builder.AddProject<Projects.TodoWeb>("web")
+    .WithReference(db);
 
 // Game1/2 reference the Aspire-managed database
 var game1 = builder.AddProject<Projects.Game1>("game1")

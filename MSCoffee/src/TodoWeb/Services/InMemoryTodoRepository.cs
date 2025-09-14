@@ -25,12 +25,13 @@ public sealed class InMemoryTodoRepository : ITodoRepository
         if (string.IsNullOrWhiteSpace(title)) return;
         lock (_lock)
         {
-            _items.Add(new TodoItem(Guid.NewGuid(), title.Trim(), false));
+            var nextId = _items.Count == 0 ? 1 : (_items.Max(x => x.Id) + 1);
+            _items.Add(new TodoItem(nextId, title.Trim(), false));
         }
     }
 
 
-    public void Toggle(Guid id)
+    public void Toggle(int id)
     {
         lock (_lock)
         {
@@ -44,7 +45,7 @@ public sealed class InMemoryTodoRepository : ITodoRepository
     }
 
 
-    public void Delete(Guid id)
+    public void Delete(int id)
     {
         lock (_lock)
         {

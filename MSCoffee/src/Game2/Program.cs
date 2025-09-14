@@ -27,14 +27,7 @@ app.MapControllerRoute(
 
 if (app.Environment.IsDevelopment())
 {
-    try
-    {
-        await app.Services.ApplyMigrationsAsync();
-    }
-    catch (Exception ex)
-    {
-        app.Logger.LogWarning(ex, "Skipping DB migrations (dev): database not available.");
-    }
+    await app.Services.ApplyMigrationsAsync();
 }
 
 app.Run();
