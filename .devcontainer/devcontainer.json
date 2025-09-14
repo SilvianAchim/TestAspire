@@ -9,7 +9,8 @@
         "vscode": {
             "extensions": [
                 "ms-dotnettools.csharp",
-                "ms-dotnettools.csdevkit"
+                "ms-dotnettools.csdevkit",
+                "bradlc.vscode-tailwindcss"
             ],
             "settings": {
                 "dotnet.server.useOmnisharp": false
