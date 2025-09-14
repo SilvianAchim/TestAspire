@@ -5,7 +5,7 @@ module.exports = {
     './src/**/*.razor',
     './src/**/*.html',
     './src/**/*.cs',
-    './src/**/*.js'
+  './src/**/*.js'
   ],
   theme: {
     extend: {},
