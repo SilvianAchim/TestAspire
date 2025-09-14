@@ -62,3 +62,8 @@ coverage*/
 *.dbmdl
 
 # Keep everything else tracked
+
+# Node / Tailwind
+node_modules/
+src/TodoWeb/wwwroot/css/tailwind.css
+src/TodoWeb/wwwroot/css/tailwind.css.map
