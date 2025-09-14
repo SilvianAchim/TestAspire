@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MSCoffee.Common.Data;
+using MSCoffee.Common.Contants;
 
 namespace MSCoffee.Common.Extensions;
 
@@ -12,7 +13,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddCommonData(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString(DefaultConnectionName)
-            ?? configuration["ConnectionStrings:Postgres"]
+            ?? configuration[AppSettingsContants.ConnectionStrings_Postgres]
             ?? throw new InvalidOperationException("Missing Postgres connection string.");
 
         services.AddDbContext<CoffeeDbContext>(options =>
