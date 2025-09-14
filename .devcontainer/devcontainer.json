@@ -14,7 +14,8 @@
             "extensions": [
                 "ms-dotnettools.csharp",
                 "ms-dotnettools.csdevkit",
-                "bradlc.vscode-tailwindcss"
+                "bradlc.vscode-tailwindcss",
+                "ckolkman.vscode-postgres"
             ],
             "settings": {
                 "dotnet.server.useOmnisharp": false,
