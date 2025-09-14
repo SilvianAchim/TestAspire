@@ -32,6 +32,6 @@
         }
     },
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/TodoApp",
-    "postCreateCommand": "set -e; dotnet --info; dotnet dev-certs https --clean || true; dotnet dev-certs https; dotnet restore; dotnet build; if [ -f package.json ]; then (npm ci || npm install); fi",
+    "postCreateCommand": "set -e; dotnet --info; dotnet dev-certs https --clean || true; dotnet dev-certs https; dotnet restore; dotnet build; if [ -f package.json ]; then if [ -f package-lock.json ]; then npm ci; else npm install; fi; fi",
     "remoteUser": "vscode"
 }
