@@ -6,9 +6,12 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 // Always manage Postgres via Aspire so it appears in the dashboard
 // Note: resource names are case-insensitive; avoid 'Postgres' vs 'postgres' collisions.
+// Define a secret parameter for the Postgres password managed by Aspire
+var pgPassword = builder.AddParameter("pg-password", secret: true);
+
 var pg = builder.AddPostgres("pg")
-    // Set a stable dev password so the persisted volume and generated connection strings stay in sync
-    .WithEnvironment("POSTGRES_PASSWORD", "postgres")
+    // Use the Aspire-managed parameter so connection strings and health checks match
+    .WithPassword(pgPassword)
     .WithDataVolume();
 var db = pg.AddDatabase("Postgres", databaseName: "mscoffee_dev");
 
